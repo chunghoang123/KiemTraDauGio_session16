@@ -10,7 +10,7 @@ public class Main {
 
         int choice;
         do {
-            System.out.println("\n=== HỆ THỐNG QUẢN LÝ SẢN PHẨM ===");
+            System.out.println("\nHỆ THỐNG QUẢN LÝ SẢN PHẨM");
             System.out.println("1. Thêm sản phẩm");
             System.out.println("2. Xóa sản phẩm theo ID");
             System.out.println("3. Tìm sản phẩm theo ID");
@@ -20,7 +20,7 @@ public class Main {
             System.out.println("0. Thoát");
             System.out.print("Chọn chức năng: ");
             choice = sc.nextInt();
-            sc.nextLine(); // Xóa ký tự newline
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
@@ -85,26 +85,24 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("=== DANH SÁCH SẢN PHẨM ===");
+                    System.out.println("DANH SÁCH SẢN PHẨM");
                     for (Product product : repository.findAll()) {
                         product.displayInfo();
                         System.out.println("Thành tiền: " + product.calculateFinalPrice());
-                        System.out.println("------------------------");
                     }
                     break;
 
                 case 5:
                     repository.sortProductsByPrice();
-                    System.out.println("=== DANH SÁCH SAU KHI SẮP XẾP ===");
+                    System.out.println("DANH SÁCH SAU KHI SẮP XẾP");
                     for (Product product : repository.findAll()) {
                         product.displayInfo();
                         System.out.println("Thành tiền: " + product.calculateFinalPrice());
-                        System.out.println("------------------------");
                     }
                     break;
 
                 case 6:
-                    System.out.println("=== THỐNG KÊ LOẠI SẢN PHẨM ===");
+                    System.out.println("THỐNG KÊ LOẠI SẢN PHẨM");
                     Map<String, Integer> stats = repository.countProductTypes();
                     for (Map.Entry<String, Integer> entry : stats.entrySet()) {
                         System.out.println(entry.getKey() + ": " + entry.getValue());
